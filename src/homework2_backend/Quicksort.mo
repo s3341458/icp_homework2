@@ -16,17 +16,17 @@ module {
 
   private func partition(arr : [var Int], low : Nat, high : Nat) : Nat {
     let pivot = arr[high];
-    var i: Nat = low - 1;
+    var i: Nat = low;
 
     for (j in Iter.range(low, high)) {
       if (arr[j] < pivot) {
-        i += 1;
         swap(arr, i, j);
+        i += 1;
       };
     };
 
-    swap(arr, i + 1, high);
-    return i + 1;
+    swap(arr, i, high);
+    return i;
   };
 
   private func swap(arr : [var Int], i : Nat, j : Nat) : () {
